@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAMB Emergency Class 2026 — Score 300+</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8002D;
+    --red-dark: #B8001F;
+    --yellow: #FFD000;
+    --black: #0A0A0A;
+    --white: #FAFAFA;
+    --gray: #1A1A1A;
+    --gray-mid: #2E2E2E;
+    --gray-light: #6B6B6B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* TICKER */
+  .ticker {
+    background: var(--red);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 20s linear infinite;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 5vw 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(120px, 22vw, 300px);
+    color: rgba(232,0,45,0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,0,45,0.12);
+    border: 1px solid rgba(232,0,45,0.4);
+    border-radius: 40px;
+    padding: 8px 18px;
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    margin-bottom: 28px;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+  .badge .dot {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    animation: pulse 1.5s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(48px, 10vw, 130px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    animation: fadeUp 0.7s 0.1s ease both;
+    position: relative;
+  }
+
+  .hero h1 .accent {
+    color: var(--red);
+    display: block;
+  }
+
+  .hero h1 .outline {
+    -webkit-text-stroke: 2px var(--white);
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(16px, 2.5vw, 24px);
+    font-weight: 600;
+    color: var(--yellow);
+    margin-bottom: 24px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-desc {
+    font-size: clamp(14px, 1.5vw, 17px);
+    color: rgba(250,250,250,0.65);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 44px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 18px 40px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(232,0,45,0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 17px 36px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-secondary:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+  .stat { flex: 1; min-width: 120px; }
+  .stat-num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--red);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: rgba(250,250,250,0.5);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* URGENCY BAND */
+  .urgency-band {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 20px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .urgency-band p {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(14px, 2vw, 18px);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .countdown {
+    display: flex;
+    gap: 12px;
+  }
+  .countdown-box {
+    background: var(--black);
+    color: var(--white);
+    padding: 8px 14px;
+    text-align: center;
+  }
+  .countdown-box .num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--red);
+  }
+  .countdown-box .lbl {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 5vw; }
+
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(32px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .section-body {
+    font-size: 16px;
+    color: rgba(250,250,250,0.6);
+    max-width: 600px;
+    line-height: 1.8;
+  }
+
+  /* WHO IS THIS FOR */
+  .for-section {
+    background: var(--gray);
+    position: relative;
+    overflow: hidden;
+  }
+  .for-section::before {
+    content: '?';
+    position: absolute;
+    right: -2vw;
+    top: -10%;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 40vw;
+    color: rgba(255,255,255,0.02);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+    margin-top: 56px;
+  }
+  .pain-card {
+    background: var(--gray-mid);
+    padding: 36px 28px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .pain-card:hover {
+    border-top-color: var(--red);
+    transform: translateY(-4px);
+  }
+  .pain-icon { font-size: 32px; margin-bottom: 16px; }
+  .pain-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .pain-text { font-size: 14px; color: rgba(250,250,250,0.55); line-height: 1.7; }
+
+  /* WHAT YOU GET */
+  .offer-section { background: var(--black); }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .offer-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .offer-card:hover { border-color: rgba(232,0,45,0.5); }
+  .offer-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--red), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .offer-card:hover::after { transform: scaleX(1); }
+  .offer-num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 60px;
+    color: rgba(232,0,45,0.12);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .offer-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .offer-text { font-size: 14px; color: rgba(250,250,250,0.55); line-height: 1.7; }
+
+  /* SUBJECTS */
+  .subjects-section { background: var(--gray); }
+
+  .subjects-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+  }
+  @media(max-width: 700px) { .subjects-row { grid-template-columns: 1fr; } }
+
+  .subject-card {
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .subject-card.maths { background: var(--red); }
+  .subject-card.chem { background: var(--gray-mid); }
+  .subject-card.phys { background: #111827; }
+
+  .subject-card::before {
+    content: attr(data-icon);
+    position: absolute;
+    top: -10px; right: -10px;
+    font-size: 100px;
+    opacity: 0.08;
+  }
+
+  .subject-name {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .subject-score {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+  .subject-topics {
+    font-size: 13px;
+    opacity: 0.75;
+    line-height: 1.9;
+    text-align: left;
+  }
+  .topic-item::before { content: '→ '; opacity: 0.6; }
+
+  /* PRICING */
+  .pricing-section { background: var(--black); }
+
+  .pricing-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+    max-width: 800px;
+  }
+
+  .price-card {
+    padding: 48px 36px;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .price-card.featured {
+    background: var(--red);
+    border-color: var(--red);
+    transform: scale(1.02);
+  }
+  .price-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 16px;
+    white-space: nowrap;
+  }
+  .price-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+  .price-amount {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .price-orig {
+    font-size: 14px;
+    text-decoration: line-through;
+    opacity: 0.55;
+    margin-bottom: 28px;
+  }
+  .price-features {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+  .price-features li {
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .price-features li::before {
+    content: '✓';
+    color: var(--yellow);
+    font-weight: 700;
+  }
+
+  /* GUARANTEE */
+  .guarantee-section {
+    background: var(--gray);
+    text-align: center;
+  }
+  .guarantee-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--red);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    position: relative;
+  }
+  .guarantee-circle::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(232,0,45,0.3);
+  }
+  .guarantee-num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 52px;
+    color: var(--red);
+    line-height: 1;
+  }
+  .guarantee-text { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; }
+  .guarantee-body {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: rgba(250,250,250,0.65);
+    line-height: 1.8;
+  }
+
+  /* FAQ */
+  .faq-section { background: var(--black); }
+  .faq-list { margin-top: 48px; max-width: 700px; }
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 24px 0;
+  }
+  .faq-q {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .faq-q::before {
+    content: 'Q';
+    color: var(--red);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .faq-a {
+    font-size: 14px;
+    color: rgba(250,250,250,0.55);
+    line-height: 1.8;
+    padding-left: 32px;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--red);
+    text-align: center;
+    padding: 120px 5vw;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '300+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 40vw;
+    color: rgba(0,0,0,0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .final-cta h2 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(36px, 7vw, 90px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .final-cta p {
+    font-size: 18px;
+    opacity: 0.85;
+    margin-bottom: 48px;
+    position: relative;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta .btn-white {
+    background: var(--white);
+    color: var(--red);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 20px 56px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .final-cta .btn-white:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--gray);
+    padding: 32px 5vw;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(250,250,250,0.35);
+  }
+
+  /* WATERMARK / DESIGN NOTE SECTION */
+  .design-notes {
+    background: #0D0D0D;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 60px 5vw;
+  }
+  .design-notes h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 32px;
+  }
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+  }
+  .design-item h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(250,250,250,0.5);
+    margin-bottom: 10px;
+  }
+  .design-item p { font-size: 13px; color: rgba(250,250,250,0.3); line-height: 1.7; }
+  .color-swatch {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+  }
+
+  @media(max-width: 600px) {
+    .hero-stats { gap: 24px; }
+    .subjects-row { grid-template-columns: 1fr; }
+    .pricing-wrapper { grid-template-columns: 1fr; }
+    .price-card.featured { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    ⚡ JAMB 2026 EMERGENCY CLASS • STARTS MARCH 8TH • SCORE 300+ IN 30 DAYS • MATHS • CHEMISTRY • PHYSICS • EARLY BIRD: ₦10,000 • LIMITED SLOTS • ⚡ JAMB 2026 EMERGENCY CLASS • STARTS MARCH 8TH • SCORE 300+ IN 30 DAYS • MATHS • CHEMISTRY • PHYSICS • EARLY BIRD: ₦10,000 • LIMITED SLOTS •&nbsp;
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">300+</div>
+
+  <div class="badge">
+    <span class="dot"></span>
+    JAMB 2026 — Emergency Prep Class
+  </div>
+
+  <h1>
+    SCORE
+    <span class="accent">300+</span>
+    <span class="outline">IN 30</span>
+    DAYS
+  </h1>
+
+  <p class="hero-sub">Starting March 8th — 30 Classes. 3 Subjects. Zero Excuses.</p>
+
+  <p class="hero-desc">
+    You may be starting late. But late doesn't mean lost. This emergency crash class was built for students who want to dominate Maths, Chemistry, and Physics — and walk into that exam hall ready to score 70+ in each subject.
+  </p>
+
+  <div class="hero-cta">
+    <a href="#pricing" class="btn-primary">🔥 Join Now — Early Bird ₦10,000</a>
+    <a href="#what-you-get" class="btn-secondary">See What's Included →</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">30</div>
+      <div class="stat-label">Classes Total</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">90%</div>
+      <div class="stat-label">Syllabus Covered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">70+</div>
+      <div class="stat-label">Score Per Subject</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Core Subjects</div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY BAND -->
+<div class="urgency-band">
+  <p>⏳ Early Bird Ends Soon — Save ₦5,000 Today!</p>
+  <div class="countdown">
+    <div class="countdown-box"><div class="num" id="days">09</div><div class="lbl">Days</div></div>
+    <div class="countdown-box"><div class="num" id="hours">00</div><div class="lbl">Hrs</div></div>
+    <div class="countdown-box"><div class="num" id="mins">00</div><div class="lbl">Min</div></div>
+    <div class="countdown-box"><div class="num" id="secs">00</div><div class="lbl">Sec</div></div>
+  </div>
+</div>
+
+<!-- WHO IS THIS FOR -->
+<section class="for-section">
+  <div class="section-label">Is This For You?</div>
+  <h2 class="section-title">THIS CLASS WAS<br>BUILT FOR YOU IF…</h2>
+  <p class="section-body">You recognise yourself in at least one of these situations. If you do — you're exactly who this class is for.</p>
+
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">😰</div>
+      <div class="pain-title">You just realised JAMB is close</div>
+      <div class="pain-text">You thought you had more time. Now panic is setting in and you don't know where to start. This class gives you a structured, fast-track path.</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">📚</div>
+      <div class="pain-title">You've been studying but not scoring</div>
+      <div class="pain-text">You've read textbooks and still feel lost. The problem isn't effort — it's direction. We teach you exactly what JAMB tests and how they test it.</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🎯</div>
+      <div class="pain-title">Your target is 300+ but you're scared</div>
+      <div class="pain-text">300+ is possible — but only with the right strategy. We break each subject down so 70+ per subject is achievable, not just a dream.</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🔁</div>
+      <div class="pain-title">This is your second or third attempt</div>
+      <div class="pain-text">You've tried before and it didn't go as planned. This time, you need a different approach — not harder study, but smarter study. That's exactly what this is.</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">💸</div>
+      <div class="pain-title">You can't afford an expensive coaching class</div>
+      <div class="pain-text">Physical coaching centers charge ₦50,000–₦150,000. This class gives you the same quality — or better — at a fraction of the cost.</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">⏱️</div>
+      <div class="pain-title">You want results FAST with structure</div>
+      <div class="pain-text">No fluff. No wasted time. 30 focused classes, carefully structured to get you from zero to exam-ready as efficiently as possible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="offer-section" id="what-you-get">
+  <div class="section-label">The Package</div>
+  <h2 class="section-title">EVERYTHING YOU<br>NEED TO SCORE BIG</h2>
+  <p class="section-body">This is not just video lectures. This is a complete exam-winning system built for the time-pressed JAMB student.</p>
+
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-num">01</div>
+      <div class="offer-title">🎥 Detailed Video Lectures</div>
+      <div class="offer-text">30 in-depth video classes covering Maths, Chemistry, and Physics. Each topic is explained clearly, simply, and with exam-specific focus. Watch. Understand. Apply.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-num">02</div>
+      <div class="offer-title">📝 Comprehensive Lecture Notes</div>
+      <div class="offer-text">Every class comes with structured lecture notes you can read, highlight, and revise from. No need to scramble to write everything down — the notes are ready.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-num">03</div>
+      <div class="offer-title">📋 JAMB Past Questions</div>
+      <div class="offer-text">Practise with carefully selected past questions for each topic. You'll see exactly how JAMB sets questions and learn how to answer them correctly and quickly.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-num">04</div>
+      <div class="offer-title">🧭 90% Syllabus Coverage</div>
+      <div class="offer-text">We focus only on what JAMB actually tests. No time wasted on irrelevant topics. In 30 classes, you will cover 80–90% of the JAMB syllabus across all 3 subjects.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-num">05</div>
+      <div class="offer-title">⚡ Emergency Speed Strategy</div>
+      <div class="offer-text">Not just content — we teach you time management, question strategy, and how to maximise marks even when you're unsure. These are the skills that separate 250 from 320.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-num">06</div>
+      <div class="offer-title">🔒 Lifetime Access</div>
+      <div class="offer-text">Your access doesn't expire. Rewatch lectures. Revisit notes. Redo past questions as many times as you need until exam day and beyond.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECTS -->
+<section class="subjects-section">
+  <div class="section-label">Subjects Covered</div>
+  <h2 class="section-title">3 SUBJECTS.<br>TOTAL DOMINATION.</h2>
+
+  <div class="subjects-row">
+    <div class="subject-card maths" data-icon="∑">
+      <div class="subject-name">MATHS</div>
+      <div class="subject-score">Target: 70+ Score</div>
+      <div class="subject-topics">
+        <div class="topic-item">Number & Numeration</div>
+        <div class="topic-item">Algebra & Equations</div>
+        <div class="topic-item">Geometry & Trigonometry</div>
+        <div class="topic-item">Statistics & Probability</div>
+        <div class="topic-item">Calculus (Differentiation)</div>
+        <div class="topic-item">Word Problems & Sequences</div>
+        <div class="topic-item">Exam Speed Techniques</div>
+      </div>
+    </div>
+    <div class="subject-card chem" data-icon="⚗">
+      <div class="subject-name">CHEM</div>
+      <div class="subject-score">Target: 70+ Score</div>
+      <div class="subject-topics">
+        <div class="topic-item">Atomic Structure & Bonding</div>
+        <div class="topic-item">Periodic Table & Trends</div>
+        <div class="topic-item">Stoichiometry & Mole</div>
+        <div class="topic-item">Acids, Bases & Salts</div>
+        <div class="topic-item">Organic Chemistry</div>
+        <div class="topic-item">Electrochemistry</div>
+        <div class="topic-item">Reaction Kinetics</div>
+      </div>
+    </div>
+    <div class="subject-card phys" data-icon="⚡">
+      <div class="subject-name">PHYS</div>
+      <div class="subject-score">Target: 70+ Score</div>
+      <div class="subject-topics">
+        <div class="topic-item">Mechanics & Motion</div>
+        <div class="topic-item">Energy, Work & Power</div>
+        <div class="topic-item">Waves & Optics</div>
+        <div class="topic-item">Electricity & Magnetism</div>
+        <div class="topic-item">Modern Physics</div>
+        <div class="topic-item">Heat & Temperature</div>
+        <div class="topic-item">Calculations Mastery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label">Investment</div>
+  <h2 class="section-title">PICK YOUR<br>ACCESS PLAN</h2>
+  <p class="section-body">Early bird pricing won't last. Lock in your spot now at the lowest possible price before registration closes.</p>
+
+  <div class="pricing-wrapper">
+    <div class="price-card">
+      <div class="price-label">Regular Price</div>
+      <div class="price-amount">₦15K</div>
+      <div class="price-orig">After early bird deadline</div>
+      <ul class="price-features">
+        <li>30 Video Lectures</li>
+        <li>Full Lecture Notes</li>
+        <li>Past Questions Bank</li>
+        <li>90% JAMB Coverage</li>
+        <li>Lifetime Access</li>
+      </ul>
+      <a href="#" class="btn-secondary" style="width:100%; text-align:center; display:block; padding:16px;">Enrol at ₦15,000</a>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">🔥 BEST DEAL — LIMITED TIME</div>
+      <div class="price-label">Early Bird Price</div>
+      <div class="price-amount">₦10K</div>
+      <div class="price-orig">Save ₦5,000 (Regular: ₦15,000)</div>
+      <ul class="price-features">
+        <li>30 Video Lectures</li>
+        <li>Full Lecture Notes</li>
+        <li>Past Questions Bank</li>
+        <li>90% JAMB Coverage</li>
+        <li>Lifetime Access</li>
+      </ul>
+      <a href="#" class="btn-primary" style="width:100%; text-align:center; display:block;">⚡ Claim Early Bird Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee-section">
+  <div class="section-label">Our Promise</div>
+  <h2 class="section-title">THE EMERGENCY<br>CLASS GUARANTEE</h2>
+
+  <div class="guarantee-circle">
+    <div class="guarantee-num">70+</div>
+    <div class="guarantee-text">Per Subject</div>
+  </div>
+
+  <p class="guarantee-body">
+    If you attend all 30 classes, complete the past questions, and study the lecture notes — we are confident you will score 70+ in each subject and hit 300+ overall. This class is built for results, not just content delivery. We cover what matters, the way JAMB actually tests it. Your job is to show up. Our job is to prepare you.
+  </p>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-label">Questions</div>
+  <h2 class="section-title">GOT QUESTIONS?<br>WE GOT ANSWERS.</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">When exactly does the class start?</div>
+      <div class="faq-a">The Emergency Class starts March 8th, 2026. Once you pay, you'll get immediate access to the class platform and all resources available so far.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is 30 days really enough to prepare for JAMB?</div>
+      <div class="faq-a">Absolutely — if you're focused and structured. We've designed this class specifically around the JAMB pattern. 90% syllabus coverage means you're not wasting time on unlikely topics. Many students cram years of school content in weeks and still score high. This class gives you the roadmap.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I miss a class?</div>
+      <div class="faq-a">No problem. All video lectures are recorded and available. You have lifetime access, so you can catch up at any time, rewatch, and revise as much as you need before the exam.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I pay and get access?</div>
+      <div class="faq-a">Click the enrol button, complete your payment, and you'll receive access details immediately. Payment is fast, simple, and secure.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I already started preparing — is this still useful?</div>
+      <div class="faq-a">Even more useful! This class will fill the gaps in your preparation, sharpen your exam technique with past questions, and give you the structured revision you need to go from good to great.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long is the early bird price available?</div>
+      <div class="faq-a">Early bird pricing at ₦10,000 is only available for a limited time before the class starts. After that, the price goes to ₦15,000. Don't wait — secure your spot now.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>STOP WAITING.<br>START WINNING.</h2>
+  <p>March 8th is coming. Your JAMB score is determined by what you do right now. Every day you delay is a day less to prepare. Join the Emergency Class today.</p>
+  <a href="#pricing" class="btn-white">🔥 Secure My Spot Now — ₦10,000</a>
+</section>
+
+<footer>
+  <p>© 2026 JAMB Emergency Class — Maths · Chemistry · Physics · Score 300+</p>
+  <p style="margin-top:8px; font-size:11px;">Starting March 8th • 30 Classes • 90% Syllabus Coverage • Early Bird: ₦10,000</p>
+</footer>
+
+<!-- DESIGN NOTES FOR CREATOR -->
+<div class="design-notes">
+  <h3>📐 Graphic Design Guide — For Your Video Thumbnails & Flyers</h3>
+  <div class="design-grid">
+    <div class="design-item">
+      <h4>Brand Colors</h4>
+      <div class="color-swatch">
+        <div class="swatch" style="background:#E8002D; color:#fff;">RED</div>
+        <div class="swatch" style="background:#FFD000; color:#000;">YLW</div>
+        <div class="swatch" style="background:#0A0A0A; color:#fff; border:1px solid #333;">BLK</div>
+        <div class="swatch" style="background:#FAFAFA; color:#000; border:1px solid #ddd;">WHT</div>
+      </div>
+      <p style="margin-top:10px;">Primary: #E8002D (Red) · Accent: #FFD000 (Yellow) · Base: #0A0A0A</p>
+    </div>
+    <div class="design-item">
+      <h4>Typography</h4>
+      <p>Headline: Black Han Sans (heavy, punchy) · Body: DM Sans (clean, readable) · Sub-labels: Syne Bold (uppercase). Available free on Google Fonts.</p>
+    </div>
+    <div class="design-item">
+      <h4>Thumbnail Copy Formula</h4>
+      <p>Line 1: BIG SHOCKING CLAIM (e.g. "SCORE 300+")<br>Line 2: Time frame + how ("In 30 Days")<br>CTA strip at bottom: Red bar with white text</p>
+    </div>
+    <div class="design-item">
+      <h4>Flyer Layout</h4>
+      <p>Dark background · Red headline · Yellow highlight for price · Your photo top-right · Stats in bold grid · One strong CTA button at bottom</p>
+    </div>
+    <div class="design-item">
+      <h4>Video Hook Formula</h4>
+      <p>"If JAMB is in [X weeks] and you haven't finished preparing — watch this." Then immediately state the promise. Show social proof. Drop the price. Close with urgency.</p>
+    </div>
+    <div class="design-item">
+      <h4>WhatsApp / Social Caption</h4>
+      <p>Lead with pain: "JAMB is close and you're not ready?" → Show solution → State price → Add urgency → Drop link. Keep under 120 words for engagement.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Countdown to March 8, 2026
+  const target = new Date('2026-03-08T00:00:00');
+  function updateCountdown() {
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('mins').textContent = '00';
+      document.getElementById('secs').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('days').textContent = String(d).padStart(2,'0');
+    document.getElementById('hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('secs').textContent = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pain-card, .offer-card, .faq-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
